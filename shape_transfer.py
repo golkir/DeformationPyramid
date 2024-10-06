@@ -150,21 +150,6 @@ if __name__ == "__main__":
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(warped_vert[:, 0], warped_vert[:, 1], warped_vert[:, 2])
+    plt.savefig('data/final.png')
     plt.show()
-    print("done")
-
-    import matplotlib.pyplot as plt
-
-    warped_vert = np.random.rand(100, 3)  # A sample 3D point cloud
-
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.scatter(warped_vert[:, 0], warped_vert[:, 1], warped_vert[:, 2])
-
-    ax.set_xlabel('X Label')
-    ax.set_ylabel('Y Label')
-    ax.set_zlabel('Z Label')
-
-    plt.show()
-
     print("done")
