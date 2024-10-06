@@ -141,8 +141,7 @@ if __name__ == "__main__":
     src_mesh.vertices = o3d.utility.Vector3dVector(warped_vert)
     o3d.visualization.draw_geometries([src_mesh])
     """dump results"""
-    o3d.io.write_triangle_mesh("sim3_demo/things4D/" + "final" + "-fit.ply",
-                               src_mesh)
+    o3d.io.write_triangle_mesh("data/final.obj", src_mesh)
 
     #visualize mesh using matplotlib
     import matplotlib.pyplot as plt
