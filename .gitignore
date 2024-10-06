@@ -10,7 +10,6 @@ cxx/*egg-info
 *.json
 *.xml
 *.zip
-data/
 */pretrained/
 __pycache__/
 snapshot/
