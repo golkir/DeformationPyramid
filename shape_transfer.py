@@ -16,6 +16,7 @@ import numpy as np
 from model.nets import Deformation_Pyramid
 from model.loss import compute_truncated_chamfer_distance
 import argparse
+import trimesh
 
 setup_seed(0)
 
@@ -55,8 +56,16 @@ if __name__ == "__main__":
     S = args.s
     T = args.t
     """read S, sample pts"""
-    src_mesh = o3d.io.read_triangle_mesh(S)
+    tri_mesh = trimesh.load_mesh(S, process=True)
+
+    # load template mesh
+    src_mesh = o3d.geometry.TriangleMesh()
+    src_mesh.vertices = o3d.utility.Vector3dVector(tri_mesh.vertices)
+    src_mesh.triangles = o3d.utility.Vector3iVector(tri_mesh.faces)
     src_mesh.compute_vertex_normals()
+
+    # src_mesh = o3d.io.read_triangle_mesh(S)
+    # src_mesh.compute_vertex_normals()
     pcd1 = src_mesh.sample_points_uniformly(number_of_points=config.samples)
     pcd1.paint_uniform_color([0, 0.706, 1])
     src_pcd = np.asarray(pcd1.points, dtype=np.float32)
