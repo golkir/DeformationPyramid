@@ -4,8 +4,6 @@ cxx/*egg-info
 *.so
 .idea
 *.pth
-*.obj
-*.ply
 *.npz
 *.json
 *.xml
